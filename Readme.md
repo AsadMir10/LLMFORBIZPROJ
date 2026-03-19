@@ -132,3 +132,10 @@ The system follows a layered architecture:
 5. RAG system (retrieval + embeddings + Pinecone)
 6. LLM inference (Ollama Kimi model)
 7. Data layer (Django ORM + vector database)
+
+
+## Documentation
+
+- Architecture: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- Security: [SECURITY.md](./SECURITY.md)
+- Responsible AI: [RAI.md](./RAI.md)
