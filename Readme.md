@@ -265,11 +265,12 @@ The system follows a layered architecture:
 6. LLM inference (Ollama Kimi model)
 7. Data layer (Django ORM + vector database)
 
+
 ## Documentation
 
-* Architecture: [ARCHITECTURE.md](https://claude.ai/chat/ARCHITECTURE.md)
-* Security: [SECURITY.md](https://claude.ai/chat/SECURITY.md)
-* Responsible AI: [RAI.md](https://claude.ai/chat/RAI.md)
+- Architecture: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- Security: [SECURITY.md](./SECURITY.md)
+- Responsible AI: [RAI.md](./RAI.md)
 
 ---
 
