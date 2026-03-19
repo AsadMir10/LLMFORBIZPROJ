@@ -41,7 +41,7 @@ This system addresses these challenges through:
 
 ## Demo
 
-> 🎥 Demo video / live link: *coming soon*
+> 🎥 Demo video / live link: https://drive.google.com/file/d/1WZT6j-ghY5-gQrCSDanupeLbt3gNAnpn/view?usp=sharing
 
 ---
 
@@ -264,7 +264,6 @@ The system follows a layered architecture:
 5. RAG system (retrieval + embeddings + Pinecone)
 6. LLM inference (Ollama Kimi model)
 7. Data layer (Django ORM + vector database)
-
 
 ## Documentation
 
