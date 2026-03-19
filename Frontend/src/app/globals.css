@@ -1,0 +1,361 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TIER-1 // APPLE GLASS UI DESIGN SYSTEM
+   4 switchable palettes: midnight · arctic · obsidian · rose
+   ============================================================ */
+
+@theme {
+  --font-display: var(--font-syne);
+  --font-sans:    var(--font-sans);
+  --font-mono:    var(--font-mono);
+}
+
+/* ============================================================
+   PALETTE DEFINITIONS
+   ============================================================ */
+
+/* -- MIDNIGHT BLUE (default) -------------------------------- */
+[data-theme="midnight"], :root {
+  --bg-base:          #0A0E1A;
+  --bg-deep:          #060910;
+  --bg-raised:        #111827;
+
+  --glass-bg:         rgba(17, 24, 39, 0.55);
+  --glass-bg-hover:   rgba(17, 24, 39, 0.75);
+  --glass-border:     rgba(99, 179, 237, 0.12);
+  --glass-border-hover: rgba(99, 179, 237, 0.28);
+  --glass-shadow:     0 8px 32px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.05) inset;
+  --glass-shadow-lg:  0 24px 64px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255,255,255,0.06) inset;
+
+  --accent:           #63B3ED;
+  --accent-bright:    #90CDF4;
+  --accent-dim:       #2C5282;
+  --accent-glow:      rgba(99, 179, 237, 0.20);
+  --accent-glow-lg:   rgba(99, 179, 237, 0.12);
+
+  --text-primary:     rgba(255, 255, 255, 0.92);
+  --text-secondary:   rgba(255, 255, 255, 0.55);
+  --text-muted:       rgba(255, 255, 255, 0.25);
+  --text-accent:      #90CDF4;
+
+  --status-live:      #63B3ED;
+  --status-ok:        #68D391;
+  --status-warn:      #F6AD55;
+  --status-danger:    #FC8181;
+
+  --mesh-a: rgba(99, 179, 237, 0.08);
+  --mesh-b: rgba(99, 102, 241, 0.06);
+  --mesh-c: rgba(17, 24, 39, 0);
+}
+
+/* -- ARCTIC CYAN -------------------------------------------- */
+[data-theme="arctic"] {
+  --bg-base:          #E8F4FD;
+  --bg-deep:          #D1ECF9;
+  --bg-raised:        #F0F9FF;
+
+  --glass-bg:         rgba(255, 255, 255, 0.45);
+  --glass-bg-hover:   rgba(255, 255, 255, 0.65);
+  --glass-border:     rgba(6, 182, 212, 0.18);
+  --glass-border-hover: rgba(6, 182, 212, 0.4);
+  --glass-shadow:     0 8px 32px rgba(6, 182, 212, 0.12), 0 1px 0 rgba(255,255,255,0.8) inset;
+  --glass-shadow-lg:  0 24px 64px rgba(6, 182, 212, 0.18), 0 1px 0 rgba(255,255,255,0.9) inset;
+
+  --accent:           #0891B2;
+  --accent-bright:    #06B6D4;
+  --accent-dim:       #CFFAFE;
+  --accent-glow:      rgba(6, 182, 212, 0.18);
+  --accent-glow-lg:   rgba(6, 182, 212, 0.09);
+
+  --text-primary:     rgba(8, 47, 73, 0.92);
+  --text-secondary:   rgba(8, 47, 73, 0.55);
+  --text-muted:       rgba(8, 47, 73, 0.30);
+  --text-accent:      #0E7490;
+
+  --status-live:      #0891B2;
+  --status-ok:        #059669;
+  --status-warn:      #D97706;
+  --status-danger:    #DC2626;
+
+  --mesh-a: rgba(6, 182, 212, 0.12);
+  --mesh-b: rgba(14, 116, 144, 0.07);
+  --mesh-c: rgba(255,255,255,0.6);
+}
+
+/* -- OBSIDIAN ----------------------------------------------- */
+[data-theme="obsidian"] {
+  --bg-base:          #080808;
+  --bg-deep:          #030303;
+  --bg-raised:        #111111;
+
+  --glass-bg:         rgba(22, 22, 22, 0.60);
+  --glass-bg-hover:   rgba(30, 30, 30, 0.80);
+  --glass-border:     rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.18);
+  --glass-shadow:     0 8px 32px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255,255,255,0.04) inset;
+  --glass-shadow-lg:  0 24px 64px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255,255,255,0.05) inset;
+
+  --accent:           #E2E8F0;
+  --accent-bright:    #FFFFFF;
+  --accent-dim:       #334155;
+  --accent-glow:      rgba(226, 232, 240, 0.10);
+  --accent-glow-lg:   rgba(226, 232, 240, 0.05);
+
+  --text-primary:     rgba(255, 255, 255, 0.90);
+  --text-secondary:   rgba(255, 255, 255, 0.40);
+  --text-muted:       rgba(255, 255, 255, 0.18);
+  --text-accent:      rgba(255, 255, 255, 0.75);
+
+  --status-live:      #94A3B8;
+  --status-ok:        #4ADE80;
+  --status-warn:      #FACC15;
+  --status-danger:    #F87171;
+
+  --mesh-a: rgba(255,255,255,0.03);
+  --mesh-b: rgba(255,255,255,0.02);
+  --mesh-c: rgba(0,0,0,0);
+}
+
+/* -- ROSE QUARTZ -------------------------------------------- */
+[data-theme="rose"] {
+  --bg-base:          #1A0A12;
+  --bg-deep:          #120609;
+  --bg-raised:        #2A1020;
+
+  --glass-bg:         rgba(42, 16, 32, 0.55);
+  --glass-bg-hover:   rgba(55, 20, 40, 0.75);
+  --glass-border:     rgba(251, 113, 133, 0.14);
+  --glass-border-hover: rgba(251, 113, 133, 0.32);
+  --glass-shadow:     0 8px 32px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255,255,255,0.05) inset;
+  --glass-shadow-lg:  0 24px 64px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255,255,255,0.06) inset;
+
+  --accent:           #FB7185;
+  --accent-bright:    #FDA4AF;
+  --accent-dim:       #881337;
+  --accent-glow:      rgba(251, 113, 133, 0.20);
+  --accent-glow-lg:   rgba(251, 113, 133, 0.10);
+
+  --text-primary:     rgba(255, 240, 243, 0.92);
+  --text-secondary:   rgba(255, 200, 210, 0.55);
+  --text-muted:       rgba(255, 180, 195, 0.25);
+  --text-accent:      #FDA4AF;
+
+  --status-live:      #FB7185;
+  --status-ok:        #6EE7B7;
+  --status-warn:      #FCD34D;
+  --status-danger:    #F87171;
+
+  --mesh-a: rgba(251, 113, 133, 0.10);
+  --mesh-b: rgba(244, 63, 94, 0.06);
+  --mesh-c: rgba(26, 10, 18, 0);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  background-image:
+    radial-gradient(ellipse 70% 50% at 20% 10%,  var(--mesh-a), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 80%,  var(--mesh-b), transparent),
+    radial-gradient(ellipse 100% 100% at 50% 50%, var(--mesh-c), transparent);
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   GLASS UTILITIES
+   ============================================================ */
+
+@utility glass {
+  background:          var(--glass-bg);
+  backdrop-filter:     blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border:              1px solid var(--glass-border);
+  box-shadow:          var(--glass-shadow);
+  transition:          background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@utility glass-hover {
+  background:    var(--glass-bg-hover);
+  border-color:  var(--glass-border-hover);
+  box-shadow:    var(--glass-shadow-lg);
+}
+
+@utility glass-raised {
+  background:          rgba(255,255,255,0.04);
+  backdrop-filter:     blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border:              1px solid var(--glass-border);
+  box-shadow:          var(--glass-shadow-lg);
+}
+
+@utility glass-subtle {
+  background:          rgba(255,255,255,0.03);
+  backdrop-filter:     blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border:              1px solid var(--glass-border);
+}
+
+/* ============================================================
+   ACCENT UTILITIES
+   ============================================================ */
+
+@utility accent-glow {
+  box-shadow: 0 0 0 1px var(--accent), 0 0 20px var(--accent-glow);
+}
+
+@utility accent-border {
+  border-color: var(--accent) !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.font-display { font-family: var(--font-display), 'Syne', sans-serif; }
+.font-mono    { font-family: var(--font-mono), 'IBM Plex Mono', monospace; }
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@utility scrollbar-glass {
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
+  &::-webkit-scrollbar { width: 3px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 99px;
+  }
+}
+
+/* ============================================================
+   THEME TRANSITION
+   ============================================================ */
+
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Disable transition on layout-affecting properties */
+.no-transition { transition: none !important; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px var(--accent-glow); }
+  50%       { box-shadow: 0 0 16px var(--accent-glow); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.animate-fade-up    { animation: fade-up 0.25s ease forwards; }
+.animate-blink      { animation: blink 1s step-end infinite; }
+.animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-spin       { animation: spin 1s linear infinite; }
+
+/* ============================================================
+   MARKDOWN PROSE
+   ============================================================ */
+
+.prose-glass {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+.prose-glass p { margin: 0 0 0.65rem; }
+.prose-glass p:last-child { margin: 0; }
+
+.prose-glass h1, .prose-glass h2, .prose-glass h3 {
+  font-family: var(--font-display), sans-serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 1rem 0 0.4rem;
+}
+.prose-glass h1 { font-size: 17px; }
+.prose-glass h2 { font-size: 14px; }
+.prose-glass h3 { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.prose-glass strong { color: var(--text-accent); font-weight: 600; }
+
+.prose-glass code {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  background: var(--accent-glow);
+  border: 1px solid var(--glass-border);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--accent-bright);
+}
+
+.prose-glass pre {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-left: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  backdrop-filter: blur(8px);
+}
+.prose-glass pre code { background: none; border: none; padding: 0; color: var(--text-secondary); }
+
+.prose-glass ul, .prose-glass ol { padding-left: 1.25rem; margin: 0.4rem 0; }
+.prose-glass li { margin: 0.2rem 0; color: var(--text-secondary); }
+.prose-glass li::marker { color: var(--accent); }
+
+.prose-glass blockquote {
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 12px;
+  color: var(--text-muted);
+  margin: 0.4rem 0;
+}
+
+.prose-glass a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-glow); }
+
+/* ============================================================
+   SELECT
+   ============================================================ */
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px !important;
+}
+option { background: var(--bg-raised); color: var(--text-primary); }
