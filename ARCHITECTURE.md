@@ -4,6 +4,33 @@
 
 The system follows a layered architecture designed for secure, real-time AI interaction with enterprise data.
 
+
+
+## Layered Architecture Diagram
+
+```mermaid
+flowchart LR
+    A[User] --> B[Frontend]
+    B --> C[API]
+
+    C --> D[Security]
+    D --> E[Router]
+
+    E -->|RAG| F[Retriever]
+    F --> G[Vector DB]
+    G --> F
+    F --> H[LLM]
+
+    E -->|General| H
+    E -->|DB| I[Database]
+
+    H --> J[Streaming]
+    I --> J
+
+    J --> B
+```
+
+
 ### Layers
 
 1. Frontend (Next.js)
@@ -30,6 +57,38 @@ The system follows a layered architecture designed for secure, real-time AI inte
 5. LLM generates response (streaming)
 6. Response returned as NDJSON stream
 7. Frontend renders tokens in real-time
+
+
+## Data and LLM Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant A as API
+    participant S as Security
+    participant R as Router
+    participant V as VectorDB
+    participant L as LLM
+
+    U->>F: Enter query
+    F->>A: Send request
+
+    A->>S: Process input
+    S->>S: PII + safety check
+
+    S->>R: Clean query
+    R->>R: Classify route
+
+    R->>V: Retrieve context (if RAG)
+    V-->>R: Documents
+
+    R->>L: Send prompt (with or without context)
+    L-->>F: Stream response
+
+    F-->>U: Display output
+```
+
 
 ---
 
